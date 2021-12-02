@@ -1,10 +1,6 @@
 <resources>
     <string name="app_name">s185180Lykkehjul</string>
     <string name="spin">Spin</string>
-    <string name="score">Score: </string>
-    <string name="scoreint">0</string>
-    <string name="lives">Lives: </string>
-    <string name="livesint">5</string>
     <string name="your_score">Score: %s</string>
     <string name="your_lives">Lives: %s</string>
 </resources>
