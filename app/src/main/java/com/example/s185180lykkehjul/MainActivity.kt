@@ -11,6 +11,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        gameScoreTextView = findViewById(R.id.gameScoreTextView)
+
         val rollButton: Button = findViewById(R.id.button)
 
         rollButton.setOnClickListener {
@@ -18,25 +20,60 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    internal lateinit var gameScoreTextView: TextView
+    internal var score = 0
+    
+
+
+    private fun increaseScore(){
+        gameScoreTextView.text = getString(R.string.your_score,score.toString())
+    }
+
+    // baseret på terning-appen har jeg hardcoded udfaldene og givet dem funktioner.
     private fun rollDice() {
-        val dice = Dice(3)
+        val dice = Dice(8)
         val diceRoll = dice.roll()
 
 
+        // ??
         val resultTextView: TextView = findViewById(R.id.textView)
         resultTextView.text = diceRoll.toString()
 
         if (diceRoll == 1){
-            val toast = Toast.makeText(applicationContext, "+100 points", Toast.LENGTH_SHORT)
-            toast.show()
+            score += 200
+            increaseScore()
+            Toast.makeText(applicationContext, "+200 points", Toast.LENGTH_SHORT).show()
         }
         if (diceRoll == 2){
-            val toast = Toast.makeText(applicationContext, "You lost a life", Toast.LENGTH_SHORT)
-            toast.show()
+            score += 400
+            increaseScore()
+            Toast.makeText(applicationContext, "+400 points", Toast.LENGTH_SHORT).show()
         }
         if (diceRoll == 3){
-            val toast = Toast.makeText(applicationContext, "Extra turn", Toast.LENGTH_SHORT)
-            toast.show()
+            score += 600
+            increaseScore()
+            Toast.makeText(applicationContext, "+600 points", Toast.LENGTH_SHORT).show()
+        }
+        if (diceRoll == 4){
+            score += 800
+            increaseScore()
+            Toast.makeText(applicationContext, "+800 points", Toast.LENGTH_SHORT).show()
+        }
+        if (diceRoll == 5){
+            score += 1000
+            increaseScore()
+            Toast.makeText(applicationContext, "+1000 points", Toast.LENGTH_SHORT).show()
+        }
+        if (diceRoll == 6){
+            Toast.makeText(applicationContext, "You lost a life", Toast.LENGTH_SHORT).show()
+        }
+        if (diceRoll == 7){
+            Toast.makeText(applicationContext, "You got an extra life", Toast.LENGTH_SHORT).show()
+        }
+        if (diceRoll == 8){
+            score = 0
+            increaseScore()
+            Toast.makeText(applicationContext, "You lost all your points", Toast.LENGTH_SHORT).show()
         }
     }
 }
