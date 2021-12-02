@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -18,12 +19,25 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun rollDice() {
-        val dice = Dice(6)
+        val dice = Dice(3)
         val diceRoll = dice.roll()
 
 
         val resultTextView: TextView = findViewById(R.id.textView)
         resultTextView.text = diceRoll.toString()
+
+        if (diceRoll == 1){
+            val toast = Toast.makeText(applicationContext, "+100 points", Toast.LENGTH_SHORT)
+            toast.show()
+        }
+        if (diceRoll == 2){
+            val toast = Toast.makeText(applicationContext, "You lost a life", Toast.LENGTH_SHORT)
+            toast.show()
+        }
+        if (diceRoll == 3){
+            val toast = Toast.makeText(applicationContext, "Extra turn", Toast.LENGTH_SHORT)
+            toast.show()
+        }
     }
 }
 
