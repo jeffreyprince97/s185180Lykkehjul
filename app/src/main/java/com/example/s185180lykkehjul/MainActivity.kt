@@ -9,6 +9,16 @@ import androidx.navigation.findNavController
 import java.lang.StringBuilder
 import kotlin.random.Random
 
+/*
+* TODO:
+* - navigér fra mainactivity til gamelost, hvis man ikke har flere liv
+* 
+* - implementér mulighed for at gætte på det hemmelige ord.
+*   - forhindr brugeren i at trykke spin, hvis der skal gættes.
+*   - hvert ord skal have en kategori (synlig) tilkoblet.
+*
+* */
+
 
 class MainActivity : AppCompatActivity() {
 
