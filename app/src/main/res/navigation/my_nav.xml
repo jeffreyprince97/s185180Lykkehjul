@@ -10,4 +10,18 @@
         android:name="com.example.s185180lykkehjul.MainActivity"
         android:label="activity_main"
         tools:layout="@layout/activity_main" />
+    <fragment
+        android:id="@+id/gamelost"
+        android:name="com.example.s185180lykkehjul.gamelost"
+        android:label="fragment_gamelost"
+        tools:layout="@layout/fragment_gamelost" >
+        <action
+            android:id="@+id/action_gamelost_to_mainActivity2"
+            app:destination="@id/mainActivity" />
+    </fragment>
+    <fragment
+        android:id="@+id/gamewon"
+        android:name="com.example.s185180lykkehjul.gamewon"
+        android:label="fragment_gamewon"
+        tools:layout="@layout/fragment_gamewon" />
 </navigation>

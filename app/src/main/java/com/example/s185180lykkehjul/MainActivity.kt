@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
-import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.navigation.findNavController
 import java.lang.StringBuilder
@@ -48,7 +47,8 @@ class MainActivity : AppCompatActivity() {
 
         val rollButton: Button = findViewById(R.id.button)
 
-        // 
+        // for at undgå tomme strings indtil man ruller noget, der ændrer på både liv og score
+        // opdaterer jeg begge strings til standardværdi på hver klik
         rollButton.setOnClickListener {
             updateScore()
             updateLives()
@@ -107,7 +107,7 @@ class MainActivity : AppCompatActivity() {
         val diceRoll = dice.roll()
 
 
-        // ??
+        // teksten under Spin-knappen, som fortæller hvad man har rullet.
         val resultTextView: TextView = findViewById(R.id.textView)
         resultTextView.text = diceRoll.toString()
 

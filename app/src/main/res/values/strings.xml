@@ -3,4 +3,8 @@
     <string name="spin">Spin</string>
     <string name="your_score">Score: %s</string>
     <string name="your_lives">Lives: %s</string>
+    <string name="restart">Restart</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="gamelost">Game lost! Try again</string>
+    <string name="gamewon">Game won! Congratulations</string>
 </resources>
