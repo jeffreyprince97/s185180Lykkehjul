@@ -9,16 +9,21 @@ import androidx.navigation.findNavController
 import java.lang.StringBuilder
 import kotlin.random.Random
 
+//
 /*
-* TODO:
+*  TODO:
+*
 * - navigér fra mainactivity til gamelost, hvis man ikke har flere liv
-* 
+*   - forsøgte at kopiere mainactivity over i et fragment, og lade mainactivity fungere som navigation.
+*
+* - implementér funktion til hvert bogstav.
+*
 * - implementér mulighed for at gætte på det hemmelige ord.
 *   - forhindr brugeren i at trykke spin, hvis der skal gættes.
 *   - hvert ord skal have en kategori (synlig) tilkoblet.
 *
 * */
-
+//
 
 class MainActivity : AppCompatActivity() {
 
@@ -47,6 +52,7 @@ class MainActivity : AppCompatActivity() {
             .navigate(R.id.gamelostfragment)
         } */
 
+        // giver indhold til score, liv, hemmelige ord og alfabetet på skærmen
         gameScoreTextView = findViewById(R.id.gameScoreTextView)
         gameLivesTextView = findViewById(R.id.gameLivesTextView)
         wordTextView = findViewById(R.id.wordTextView)
@@ -66,7 +72,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-
+    // liste af hemmelige ord
     object GameWords {
         val words = listOf(
             "Activity",
@@ -90,6 +96,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     // Inspiration er fundet herfra: https://github.com/usmaanz/Hangman
+    // Vælger et vilkårligt ord fra listen ovenfor og kører generateHiddenWord().
     private fun getRandomWord(){
         val randomIndex = Random.nextInt(0,GameWords.words.size)
         wordToGuess = GameWords.words[randomIndex]
@@ -97,6 +104,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     // Inspiration er fundet herfra: https://github.com/usmaanz/Hangman
+    // Erstatter skråstrege med skråstrege og alt andet med underscores.
     private fun generateHiddenWord(word: String){
         val sb = StringBuilder()
         word.forEach {
@@ -106,7 +114,7 @@ class MainActivity : AppCompatActivity() {
             sb.append("_")
         }
         }
-        underscoreWord = sb.toString()
+        underscoreWord = sb.toString() // laver det hemmelige ord til en string og opdaterer wordTextView.
     }
 
 
@@ -168,6 +176,6 @@ class MainActivity : AppCompatActivity() {
 
 class Dice(private val numSides: Int) {
     fun roll(): Int {
-        return (1..numSides).random()
+        return (1..numSides).random() // numSides er defineret længere oppe.
     }
 }
